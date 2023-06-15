@@ -1,0 +1,31 @@
+﻿@model SystemZarzadzaniaPracownikami.Models.User
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+<h1>Szczegóły</h1>
+<ul class="InfoDetails">
+<li><b>Imie :</b> @Model.Name</li>
+<li><b>Nazwisko :</b> @Model.Sname</li>
+<li><b>Wiek :</b> @Model.Wiek</li>
+<li><b>Rola :</b> @Model.Rola</li>
+</ul>
+@using(Html.BeginForm("Edit","User",FormMethod.Post)){
+    @Html.ValidationSummary()
+    <div class="all">
+        <div class="form editField">
+        @Html.TextBoxFor(x=>x.Id,new{Class="niedzialaj"})
+        @Html.TextBoxFor(x => x.Name,new{ Placeholder="Imie",Class="form-control textbox"})
+            <span asp-validation-for="Name" class="text-danger"></span>
+        @Html.TextBoxFor(x=> x.Sname,new{ Placeholder="Nazwisko",Class="form-control textbox"})
+            <span asp-validation-for="Sname" class="text-danger"></span>
+        @Html.TextBoxFor(x=> x.Wiek,new{ Placeholder="Wiek",Class="form-control textbox"})
+            <span asp-validation-for="Wiek" class="text-danger"></span>
+        @Html.TextBoxFor(x=> x.Rola,new{ Placeholder="Stanowisko",Class="form-control textbox"})
+            <span asp-validation-for="Rola" class="text-danger"></span>
+            <button type="submit" class="btn btn-warning edycja">Edytuj</button>
+    </div>
+    </div>
+
+}

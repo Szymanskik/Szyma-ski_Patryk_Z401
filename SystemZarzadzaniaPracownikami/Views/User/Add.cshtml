@@ -1,0 +1,24 @@
+﻿@model SystemZarzadzaniaPracownikami.Models.User
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1 class="text-center">Dodaj użytkownika do bazy</h1>
+
+@using(Html.BeginForm("Add","User",FormMethod.Post)){
+    @Html.ValidationSummary()
+    <div class="all">
+    <div class="form">
+            @Html.TextBoxFor(x => x.Name,new{ Placeholder="Imie",Class="form-control textbox"})
+            <span asp-validation-for="Name" class="text-danger"></span>
+            @Html.TextBoxFor(x=> x.Sname,new{ Placeholder="Nazwisko",Class="form-control textbox"})
+            <span asp-validation-for="Sname" class="text-danger"></span>
+            @Html.TextBoxFor(x=> x.Wiek,new{ Placeholder="Wiek",Class="form-control textbox"})
+            <span asp-validation-for="Wiek" class="text-danger"></span>
+            @Html.TextBoxFor(x=> x.Rola,new{ Placeholder="Stanowisko",Class="form-control textbox"})
+            <span asp-validation-for="Rola" class="text-danger"></span>
+        <button type="submit" class="btn btn-success przycisk">Wyślij</button>
+    </div>
+    </div>
+}
+

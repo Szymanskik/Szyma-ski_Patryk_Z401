@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SystemZarzadzaniaPracownikami.Models.User>
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Lista Pracowników</h1>
+
+
+
+	@foreach (var user in Model)
+	{
+        <div class="pracownicy">
+        <div class="imie">
+            <p><b>Imie</b></p>
+            <p class="nazwa">@user.Name</p>
+         </div>
+		    <div class="nazwisko">
+                <p><b>Nazwisko</b></p>
+            <p class ="nazwa">@user.Sname</p>
+            </div>
+            
+            <div class="przyciski">
+    @using (Html.BeginForm("Details", "User", FormMethod.Post))
+    {
+        <input type="hidden" name="Id" value="@user.Id" />
+        <button type="submit" class="btn btn-info InfoDel">Szczegóły</button>
+    }
+
+        @using (Html.BeginForm("Delete", "User", FormMethod.Post))
+        {
+            <input type="hidden" name="Id" value="@user.Id"/>
+        <button type="submit" class="btn btn-danger InfoDel">Usuń</button>
+			}
+		</div>
+        </div>
+	}
+
+
